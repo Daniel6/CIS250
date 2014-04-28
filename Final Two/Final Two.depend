@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1397167535 source:c:\users\daniel\dropbox\cis 250\final two\main.cpp
+	<iostream>
+	<string>
+	"inputHandler.h"
+	"puzzleSets.h"
+
+1396992329 source:c:\users\daniel\dropbox\cis 250\final two\src\input.cpp
+	"Input.h"
+	<iostream>
+
+1396992237 c:\users\daniel\dropbox\cis 250\final two\include\input.h
+
+1397166002 c:\users\daniel\dropbox\cis 250\final two\include\inputhandler.h
+
+1397166008 source:c:\users\daniel\dropbox\cis 250\final two\src\inputhandler.cpp
+	"inputHandler.h"
+	<iostream>
+
+1397167829 source:c:\users\daniel\dropbox\cis 250\final two\src\puzzlesets.cpp
+	"puzzleSets.h"
+	<iostream>
+	<string>
+
+1397167829 c:\users\daniel\dropbox\cis 250\final two\include\puzzlesets.h
+	<iostream>
+	<string>
+
