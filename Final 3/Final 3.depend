@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1399435304 source:c:\users\daniel\dropbox\cis 250\final 3\main.cpp
+	<iostream>
+	<unistd.h>
+	<windows.h>
+	<math.h>
+	"Tileset.h"
+
+1399435365 source:c:\users\daniel\dropbox\cis 250\final 3\src\tileset.cpp
+	"Tileset.h"
+	<iostream>
+	<iomanip>
+
+1399431842 c:\users\daniel\dropbox\cis 250\final 3\include\tileset.h
+	<iostream>
+	<vector>
+
