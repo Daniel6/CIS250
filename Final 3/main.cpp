@@ -46,13 +46,6 @@ void getInput() {
     //Get first choice
     rowNum1 = 4 + (mySet->getDifficulty()); //Make the following loops run at least once
     colNum1 = 4 + (mySet->getDifficulty()); //Fixes bug where after guessing two blocks game would soft lock
-    while (rowNum1 >= 4 + (mySet->getDifficulty())) { //Keep repeating until valid number is set
-        cout << "Enter row #: ";
-        cin >> rowNum1;
-        if (rowNum1 >= 4 + (mySet->getDifficulty())) {
-            cout << "Invalid row #." << endl;
-        }
-    }
     while (colNum1 >= 4 + (mySet->getDifficulty())) { //Same as with the columns
         cout << "Enter column #: ";
         cin >> colNum1;
@@ -60,6 +53,14 @@ void getInput() {
             cout << "Invalid column #." << endl;
         }
     }
+    while (rowNum1 >= 4 + (mySet->getDifficulty())) { //Keep repeating until valid number is set
+        cout << "Enter row #: ";
+        cin >> rowNum1;
+        if (rowNum1 >= 4 + (mySet->getDifficulty())) {
+            cout << "Invalid row #." << endl;
+        }
+    }
+    mySet->setVisible(rowNum1, colNum1);
     //Set up the loop to run once
     colNum2 = colNum1;
     rowNum2 = rowNum1;
@@ -68,13 +69,6 @@ void getInput() {
         //Setting the two variables so the following while loops run at least once
         colNum2 = 4 + (mySet->getDifficulty());
         rowNum2 = 4 + (mySet->getDifficulty());
-        while (rowNum2 >= 4 + (mySet->getDifficulty())) { //Same as with the columns
-            cout << "Enter second row #: ";
-            cin >> rowNum2;
-            if (rowNum2 >= 4 + (mySet->getDifficulty())) {
-                cout << "Invalid row #." << endl;
-            }
-        }
         while (colNum2 >= 4 + (mySet->getDifficulty())) { //Keep repeating until valid number is set
             cout << "Enter second column #: ";
             cin >> colNum2;
@@ -82,19 +76,26 @@ void getInput() {
                 cout << "Invalid column #." << endl;
             }
         }
+        while (rowNum2 >= 4 + (mySet->getDifficulty())) { //Same as with the columns
+            cout << "Enter second row #: ";
+            cin >> rowNum2;
+            if (rowNum2 >= 4 + (mySet->getDifficulty())) {
+                cout << "Invalid row #." << endl;
+            }
+        }
         if (colNum2 == colNum1 && rowNum2 == rowNum1) {
             cout << "You can't choose the same spot twice." << endl;
         }
     }
-    mySet->setVisible(colNum1, rowNum1);
-    mySet->setVisible(colNum2, rowNum2);
+
+    mySet->setVisible(rowNum2, colNum2);
     mySet->printSet();
     checkScore(colNum1, rowNum1, colNum2, rowNum2);
 }
 
 void checkScore(int x1, int y1, int x2, int y2) { //Pass coordinates of two choices
-    string choice1 = mySet->getElement(x1, y1);
-    string choice2 = mySet->getElement(x2, y2);
+    string choice1 = mySet->getElement(y1, x1);
+    string choice2 = mySet->getElement(y2, x2);
     if (choice1 == "" || choice2 == "") { //If either of the choices were not supposed to be visible for some reason
         //Do nothing
     } else {
@@ -107,8 +108,8 @@ void checkScore(int x1, int y1, int x2, int y2) { //Pass coordinates of two choi
             }
         } else {
             //The two choices did not match
-            mySet->setInvisible(x1, y1);
-            mySet->setInvisible(x2, y2);
+            mySet->setInvisible(y1, x1);
+            mySet->setInvisible(y2, x2);
             startCountdown(5 - mySet->getDifficulty());
         }
     }
