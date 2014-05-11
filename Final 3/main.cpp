@@ -44,19 +44,19 @@ void getInput() {
     int rowNum1;
     int rowNum2;
     //Get first choice
-    rowNum1 = 4 + (mySet->getDifficulty()); //Make the following loops run at least once
-    colNum1 = 4 + (mySet->getDifficulty()); //Fixes bug where after guessing two blocks game would soft lock
-    while (colNum1 >= 4 + (mySet->getDifficulty())) { //Same as with the columns
+    rowNum1 = 4 + (mySet->getDifficulty() * 2); //Make the following loops run at least once
+    colNum1 = 4 + (mySet->getDifficulty() * 2); //Fixes bug where after guessing two blocks game would soft lock
+    while (colNum1 >= 4 + (mySet->getDifficulty() * 2)) { //Same as with the columns
         cout << "Enter column #: ";
         cin >> colNum1;
-        if (colNum1 >= 4 + (mySet->getDifficulty())) {
+        if (colNum1 >= 4 + (mySet->getDifficulty() * 2)) {
             cout << "Invalid column #." << endl;
         }
     }
-    while (rowNum1 >= 4 + (mySet->getDifficulty())) { //Keep repeating until valid number is set
+    while (rowNum1 >= 4 + (mySet->getDifficulty() * 2)) { //Keep repeating until valid number is set
         cout << "Enter row #: ";
         cin >> rowNum1;
-        if (rowNum1 >= 4 + (mySet->getDifficulty())) {
+        if (rowNum1 >= 4 + (mySet->getDifficulty() * 2)) {
             cout << "Invalid row #." << endl;
         }
     }
@@ -67,19 +67,19 @@ void getInput() {
     //Get second choice
     while (colNum2 == colNum1 && rowNum2 == rowNum1) { //Keep prompting the user for input if they try to select the same block twice
         //Setting the two variables so the following while loops run at least once
-        colNum2 = 4 + (mySet->getDifficulty());
-        rowNum2 = 4 + (mySet->getDifficulty());
-        while (colNum2 >= 4 + (mySet->getDifficulty())) { //Keep repeating until valid number is set
+        colNum2 = 4 + (mySet->getDifficulty() * 2);
+        rowNum2 = 4 + (mySet->getDifficulty() * 2);
+        while (colNum2 >= 4 + (mySet->getDifficulty() * 2)) { //Keep repeating until valid number is set
             cout << "Enter second column #: ";
             cin >> colNum2;
-            if (colNum2 >= 4 + (mySet->getDifficulty())) {
+            if (colNum2 >= 4 + (mySet->getDifficulty() * 2)) {
                 cout << "Invalid column #." << endl;
             }
         }
-        while (rowNum2 >= 4 + (mySet->getDifficulty())) { //Same as with the columns
+        while (rowNum2 >= 4 + (mySet->getDifficulty() * 2)) { //Same as with the columns
             cout << "Enter second row #: ";
             cin >> rowNum2;
-            if (rowNum2 >= 4 + (mySet->getDifficulty())) {
+            if (rowNum2 >= 4 + (mySet->getDifficulty() * 2)) {
                 cout << "Invalid row #." << endl;
             }
         }
